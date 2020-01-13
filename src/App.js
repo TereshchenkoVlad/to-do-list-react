@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TodoList from './Todo/TodoList'
 import Context from './context'
+import AddTodo from './Todo/AddTodo'
 
 function App() {
 
@@ -25,10 +26,23 @@ function App() {
     setTodos(todos.filter(todo => todo._id !== _id))
   }
 
+  const createTodo = value => {
+    setTodos(
+      todos.concat({
+        _id: Date.now(),
+        title: value,
+        completed: false
+      }),
+    )
+  }
+
   return (
-    <Context.Provider value={{removeTodo}}>
+    <Context.Provider value={{ removeTodo }}>
       <div className='wrapper'>
         <h1>ToDo List</h1>
+        <div className='todo__add'>
+          <AddTodo onCreate={createTodo} />
+        </div>
         {
           todos.length 
           ?

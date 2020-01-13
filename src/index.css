@@ -7,16 +7,25 @@
 }
 
 .rm {
-  background-color: rgba(255, 0, 0, 0.87);
+  background-color: rgb(231, 47, 47);
   color: #fff;
   border: none;
   border-radius: 5px;
   outline: none;
   cursor: pointer;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .2s ease;
+  margin-right: 1rem;
 }
 
 .rm:hover {
   background-color: rgb(255, 0, 0);
+  width: 20px;
+  height: 20px;
 }
 
 .done {
@@ -39,7 +48,88 @@
   }
 }
 
-.bounceOut {
-  animation-duration: 0.5s;
-  animation-name: bounceOut;
+.todo__add {
+  width: 100%;
+  margin: 1rem 0; 
+}
+
+.todo_add-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo_add-input {
+  flex: 1;
+  border: 1px solid rgb(195, 195, 195);
+  border-radius: 5px 0 0 5px;
+  padding: .5rem 1rem;
+  margin-right: 5px;
+  font-family: 'Dancing Script', cursive;
+  outline: none;
+  box-shadow: 1px 1px 2px 0px #CECECE;
+}
+
+.todo_add-button {
+  padding: .5rem 1rem;
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: rgba(2, 168, 2, 0.76);
+  border-radius: 0 5px 5px 0;
+  font-family: 'Dancing Script', cursive;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px 0px #CECECE;
+  border: 1px solid rgb(195, 195, 195);
+  transition: background .2s ease-in;
+}
+
+.todo_add-button:hover {
+  background-color: rgb(2, 168, 2);
+}
+
+
+@keyframes pulse {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
 }

@@ -7,11 +7,14 @@ const style = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        minHeight: '40px',
+        height: 'auto',
         border: '1px solid #eee',
         borderRadius: '5px',
         marginBottom: '1rem',
-        padding: '.5rem 1rem',
-        boxShadow: '3px 3px 1px 0px #eee'
+        boxShadow: '2px 2px 3px 0px #CECECE',
+        animationName: 'pulse',
+        animationDuration: '1s'
     },
     input: {
         marginRight: '1rem',
@@ -19,6 +22,11 @@ const style = {
     },
     strong: {
         marginRight: '.4rem'
+    },
+    span: {
+        display: 'flex',
+        alignItems: 'center',
+        marginLeft: '1rem'
     }
 }
 
@@ -34,7 +42,7 @@ const TodoItem = ({ item, index, onChange }) => {
 
     return (
         <li style={style.li}>
-            <span className={classes.join(' ')}>
+            <span className={classes.join(' ')}  style={style.span}>
                 <input 
                     type='checkbox' 
                     checked={item.completed}
