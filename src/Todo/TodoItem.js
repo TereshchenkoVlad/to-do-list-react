@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import Context from '../context'
 
@@ -12,28 +12,26 @@ const style = {
         border: '1px solid #eee',
         borderRadius: '5px',
         marginBottom: '1rem',
-        boxShadow: '2px 2px 3px 0px #CECECE',
-        animationName: 'pulse',
-        animationDuration: '1s'
+        boxShadow: '2px 2px 3px 0px #CECECE'
     },
     input: {
-        marginRight: '1rem',
+        margin: '0 1rem',
         cursor: 'pointer'
-    },
-    strong: {
-        marginRight: '.4rem'
     },
     span: {
         display: 'flex',
         alignItems: 'center',
-        marginLeft: '1rem'
+        marginLeft: '1rem',
+        fontSize: '19px',
+        margin: '10px 0',
+        width: '555px'
     }
 }
 
 const TodoItem = ({ item, index, onChange }) => {
 
-    const { removeTodo } = useContext(Context)
-
+    const { removeTodo, editTodo } = useContext(Context)
+    const [value, setValue] = useState(item.title)
     const classes = []
 
     if (item.completed) {
@@ -42,18 +40,30 @@ const TodoItem = ({ item, index, onChange }) => {
 
     return (
         <li style={style.li}>
-            <span className={classes.join(' ')}  style={style.span}>
+            <span className={classes.join(' ')}  style={style.span} onDoubleClick={editTodo}>
                 <input 
                     type='checkbox' 
                     checked={item.completed}
                     style={style.input} 
-                    onChange={() => onChange(item._id)} 
+                    onChange={() => onChange(item.id)} 
                 />
+                
                 <strong style={style.strong}>{ index + 1 }.</strong>
-                { item.title }
+                <input 
+                    data={item.id}
+                    className='inputItem'
+                    type='text' 
+                    value={value}
+                    disabled
+                    onChange={e => setValue(e.target.value)}
+                />
+                {
+                    <button>Save</button>
+                }
+                {/* { item.title } */}
             </span>
 
-            <button className='rm' onClick={removeTodo.bind(null, item._id)}>&times;</button>
+            <button className='rm' onClick={removeTodo.bind(null, item.id)}>&times;</button>
         </li>
     )
 }

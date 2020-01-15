@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bad+Script&display=swap');
+*{
+margin: 0;
+padding: 0;
+}
 
 .wrapper {
   width: 600px;
   margin: 0 auto;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Bad Script', cursive;
 }
 
 .rm {
@@ -32,28 +36,17 @@
   text-decoration: line-through;
 }
 
-@keyframes bounceOut {
-  from {
-    transform: perspective(400px);
-  }
-
-  30% {
-    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
-    opacity: 1;
-  }
-
-  to {
-    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-    opacity: 0;
-  }
-}
-
 .todo__add {
   width: 100%;
   margin: 1rem 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .todo_add-form {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,7 +58,7 @@
   border-radius: 5px 0 0 5px;
   padding: .5rem 1rem;
   margin-right: 5px;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Bad Script', cursive;
   outline: none;
   box-shadow: 1px 1px 2px 0px #CECECE;
 }
@@ -75,9 +68,9 @@
   border: none;
   outline: none;
   color: #fff;
-  background-color: rgba(2, 168, 2, 0.76);
+  background-color: green;
   border-radius: 0 5px 5px 0;
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Bad Script', cursive;
   cursor: pointer;
   box-shadow: 1px 1px 2px 0px #CECECE;
   border: 1px solid rgb(195, 195, 195);
@@ -85,51 +78,74 @@
 }
 
 .todo_add-button:hover {
-  background-color: rgb(2, 168, 2);
+  background-color: rgb(3, 180, 3);
 }
 
-
-@keyframes pulse {
-  from,
-  20%,
-  40%,
-  60%,
-  80%,
-  to {
-    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
+/* LOADER */
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #000;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
   0% {
-    opacity: 0;
-    -webkit-transform: scale3d(0.3, 0.3, 0.3);
-    transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale(0);
   }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+/*  */
 
-  20% {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-    transform: scale3d(1.1, 1.1, 1.1);
-  }
-
-  40% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9);
-    transform: scale3d(0.9, 0.9, 0.9);
-  }
-
-  60% {
-    opacity: 1;
-    -webkit-transform: scale3d(1.03, 1.03, 1.03);
-    transform: scale3d(1.03, 1.03, 1.03);
-  }
-
-  80% {
-    -webkit-transform: scale3d(0.97, 0.97, 0.97);
-    transform: scale3d(0.97, 0.97, 0.97);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
+.inputItem {
+  /* background: inherit;
+  outline: none; */
+  /* border: none; */
+  margin-left: .4rem;
+  width: 555px;
+  font-family: 'Bad Script', cursive;
+  margin-top: 5px;
+  font-size: 16px;
 }

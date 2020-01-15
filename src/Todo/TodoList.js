@@ -18,7 +18,7 @@ const TodoList = props => {
                         <TodoItem 
                             item={item} 
                             index={index} 
-                            key={index} 
+                            key={item.id} 
                             onChange={props.onToggle}
                         />
                 )
