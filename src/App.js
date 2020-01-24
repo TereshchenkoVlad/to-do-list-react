@@ -72,9 +72,8 @@ function App() {
   }
 
   const editTodo = async e => {
-    const id = e.target.getAttribute('data')
-    console.log(e.target)
-    e.target.removeAttribute("disabled");
+    e.target.getAttribute('data') // element ID
+    e.target.removeAttribute("disabled"); // makes input enable to edit
   }
 
   return (

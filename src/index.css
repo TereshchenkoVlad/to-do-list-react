@@ -32,6 +32,22 @@ padding: 0;
   height: 20px;
 }
 
+.button_save {
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  width: 45px;
+  height: 25px;
+  transition: .2s ease;
+}
+
+.button_save:hover {
+  background-color: rgba(0, 128, 0, 0.733);
+}
+
 .done {
   text-decoration: line-through;
 }
@@ -140,9 +156,9 @@ padding: 0;
 /*  */
 
 .inputItem {
-  /* background: inherit;
-  outline: none; */
-  /* border: none; */
+  background: inherit;
+  outline: none;
+  border: none;
   margin-left: .4rem;
   width: 555px;
   font-family: 'Bad Script', cursive;

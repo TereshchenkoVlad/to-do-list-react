@@ -32,15 +32,21 @@ const TodoItem = ({ item, index, onChange }) => {
 
     const { removeTodo, editTodo } = useContext(Context)
     const [value, setValue] = useState(item.title)
+    const [editable, setEditable] = useState(false)
     const classes = []
 
     if (item.completed) {
         classes.push('done')
     }
 
+    const editableHandler = event => {
+        setEditable(true)
+        editTodo(event)
+    }
+
     return (
         <li style={style.li}>
-            <span className={classes.join(' ')}  style={style.span} onDoubleClick={editTodo}>
+            <span className={classes.join(' ')}  style={style.span} onDoubleClick={editableHandler}>
                 <input 
                     type='checkbox' 
                     checked={item.completed}
@@ -54,13 +60,12 @@ const TodoItem = ({ item, index, onChange }) => {
                     className='inputItem'
                     type='text' 
                     value={value}
-                    disabled
+                    disabled={!editable}
                     onChange={e => setValue(e.target.value)}
                 />
                 {
-                    <button>Save</button>
+                    editable && <button className='button_save' onClick={() => setEditable(false)}>Save</button>
                 }
-                {/* { item.title } */}
             </span>
 
             <button className='rm' onClick={removeTodo.bind(null, item.id)}>&times;</button>
