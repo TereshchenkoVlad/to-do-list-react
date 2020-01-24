@@ -55,6 +55,7 @@ const TodoItem = ({ item, index, onChange }) => {
                 />
                 
                 <strong style={style.strong}>{ index + 1 }.</strong>
+                {editable ?
                 <input 
                     data={item.id}
                     className='inputItem'
@@ -63,6 +64,10 @@ const TodoItem = ({ item, index, onChange }) => {
                     disabled={!editable}
                     onChange={e => setValue(e.target.value)}
                 />
+                :
+                    <p className='item_text'>{item.title}</p> 
+                }
+                
                 {
                     editable && <button className='button_save' onClick={() => setEditable(false)}>Save</button>
                 }
