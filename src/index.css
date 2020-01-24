@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Bad+Script&display=swap');
-*{
-margin: 0;
-padding: 0;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
 }
 
 .wrapper {
@@ -157,6 +162,11 @@ padding: 0;
 }
 /*  */
 
+.item_content {
+  width: 555px;
+  font-size: 19px;
+}
+
 .inputItem {
   background: inherit;
   outline: none;
@@ -170,4 +180,31 @@ padding: 0;
 
 .item_text {
   margin: 0 .5rem;
+}
+
+
+@media (max-width: 638px) {
+  .wrapper {
+      width: 335px;
+      margin: 0 auto;
+  }
+
+  .rm {
+
+  }
+
+  .item_content {
+      width: 295px;
+      font-size: 14px;
+  }
+
+  .button_save {
+      width: 65px;
+      height: 20px;
+      font-size: 8px;
+  }
+
+  .openModal__button {
+      position: relative;
+  }
 }

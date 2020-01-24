@@ -22,9 +22,7 @@ const style = {
         display: 'flex',
         alignItems: 'center',
         marginLeft: '1rem',
-        fontSize: '19px',
-        margin: '10px 0',
-        width: '555px'
+        margin: '10px 0'
     }
 }
 
@@ -33,7 +31,7 @@ const TodoItem = ({ item, index, onChange }) => {
     const { removeTodo, editTodo } = useContext(Context)
     const [value, setValue] = useState(item.title)
     const [editable, setEditable] = useState(false)
-    const classes = []
+    const classes = ['item_content']
 
     if (item.completed) {
         classes.push('done')
@@ -46,7 +44,7 @@ const TodoItem = ({ item, index, onChange }) => {
 
     return (
         <li style={style.li}>
-            <span className={classes.join(' ')}  style={style.span} onDoubleClick={editableHandler}>
+            <span style={style.span} className={classes.join(' ')} onDoubleClick={editableHandler}>
                 <input 
                     type='checkbox' 
                     checked={item.completed}
